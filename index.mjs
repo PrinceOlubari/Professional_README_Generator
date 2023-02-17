@@ -1,21 +1,67 @@
-// import fs from "fs";
+import fs from "fs/promises";
 // import path from 'path';
 import inquirer from "inquirer";
-// import generateMarkdown from ("./generateMarkdown");
+import generateMarkdown from "./generateMarkdown.js";
 
 // array of questions for user
-// const questions = [""
-
-// ];
+const questions = [
+    {
+        type: 'input',
+        name: 'fileName',
+        message: "What is the name of your file? ",
+    },
+    {
+        type: 'input',
+        name: 'projectTitle',
+        message: "What is your project title",
+    },
+    {
+        type: 'input',
+        name: 'installation',
+        message: "What are the installation and instructions required",
+    },
+    {
+        type: 'input',
+        name: 'usage',
+        message: "Provide instructions and examples for use.",
+       
+    },
+    {
+        type: 'input',
+        name: 'credits',
+        message: "List your collaborators, if any, with links to their GitHub profiles.",
+       
+    },
+    {
+        type: 'input',
+        name: 'contribution',
+        message: "How will you want people to contribute to future developement",
+       
+    },
+    {
+        type: 'input',
+        name: 'links',
+        message: "Add your links to the deployed app here",
+        
+    },
+    
+    
+];
 
 // function to write README file
-// function writeToFile(fileName, data) {
-
-
-// }
+async function writeToFile(fileName, data) {
+    
+  await  fs.writeFile(fileName,generateMarkdown(data))
+    console.log("Success")
+}
 
 // function to initialize program
-function init() {
+async function init() {
+    
+    let data = await inquirer
+        .prompt(questions)
+
+        writeToFile(data.fileName+".md",data)
 
 }
 
@@ -23,32 +69,8 @@ function init() {
 init();
 
 
-let {} = await inquirer
-    .prompt([
-        {
-            type: 'input',
-            name: 'first_name',
-            message: "What's your first name",
-        },
-        {
-            type: 'input',
-            name: 'title',
-            message: "What's your first name",
-        },
-        {
-            type: 'input',
-            name: 'setUp',
-            message: "What's your first name",
-        },
-        {
-            type: 'input',
-            name: 'credit',
-            message: "What's your last name",
-           
-        },
 
-
-    ])
+    
 
     // fs.writeFile(
     //     "README.md",
