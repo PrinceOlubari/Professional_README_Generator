@@ -60,7 +60,7 @@ const questions = [
     type: "list",
     name: "license",
     message: "What license type is required?",
-    choices: ["MIT", "PERL", "IBM"] ,
+    choices: ["MIT", "ISC", "Zlib"] ,
   },
   {
     type: "input",
