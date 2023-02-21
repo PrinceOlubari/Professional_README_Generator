@@ -63,34 +63,36 @@ function generateMarkdown(data) {
 
   return `
    
-  
-
  # ${data.projectTitle} ${badge}
 
 
- * [Install](#installation)
+ * [Description](#description)
+ * [Installation](#installation)
  * [Usage](#usage)
- * [Credits](#credits)
  * [License](#license)  
+ * [Credits](#credits)
+ * [Contributions](#contributions)
+ * [Tests](#tests)
+ * [Questions](#questions)
  
  
  ## Description
  ${data.description}
  
- 
- ## Installation
- 
- ${data.installation}
+  ## Installation
+  ${data.installation}
  
  ## Usage
   ${data.usage}
   
   ## License
-  ${data.installation}
   ${licenseDescription}
   
   ## Contributions
   ${data.contributions}
+  
+  ## Credits
+  ${data.credits}
   
   
   ## Tests
@@ -98,13 +100,9 @@ function generateMarkdown(data) {
   
   
   ## Questions
-  [${data.gitHubUsername}]()
+  Contact my GitHub Username:  ${data.gitHubUsername} Email Address: ${data.email}
   
-  * Email Address: 
-  ${data.email}
-  
-  
-  
+    
   `;
 }
 
